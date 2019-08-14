@@ -44,19 +44,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   Column _buildButtonColumn(Color color, IconData icon, String label) {
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -78,47 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget titleSection = Container(
-    padding: const EdgeInsets.all(32),
-    child: Row(
-      children: [
-        Expanded(
-          /*1*/
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              /*2*/
-              Container(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Text(
-                  'Oeschinen Lake Campground',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Text(
-                'Kandersteg, Switzerland',
-                style: TextStyle(
-                  color: Colors.grey[500],
-                ),
-              ),
-            ],
-          ),
-        ),
-        /*3*/
-        Icon(
-          Icons.star,
-          color: Colors.red[500],
-        ),
-        Text('41'),
-      ],
-    ),
-  );
-
   @override
   Widget build(BuildContext context) {
-
     Color color = Theme.of(context).primaryColor;
 
     Widget buttonSection = Container(
@@ -128,6 +76,44 @@ class _MyHomePageState extends State<MyHomePage> {
           _buildButtonColumn(color, Icons.call, 'CALL'),
           _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
           _buildButtonColumn(color, Icons.share, 'SHARE'),
+        ],
+      ),
+    );
+
+    Widget titleSection = Container(
+      padding: const EdgeInsets.all(32),
+      child: Row(
+        children: [
+          Expanded(
+            /*1*/
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /*2*/
+                Container(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    'Oeschinen Lake Campground',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Text(
+                  'Kandersteg, Switzerland',
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          /*3*/
+          Icon(
+            Icons.star,
+            color: Colors.red[500],
+          ),
+          Text('41'),
         ],
       ),
     );
@@ -150,11 +136,6 @@ class _MyHomePageState extends State<MyHomePage> {
           buttonSection,
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
