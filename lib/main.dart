@@ -90,7 +90,7 @@ class MyApp extends StatelessWidget {
           // the App.build method, and use it to set our appbar title.
           title: Text('Flutter layout demo'),
         ),
-        body: Column(            
+        body: ListView(            
           children: [
             Image.asset(
               'images/lake.jpg',
